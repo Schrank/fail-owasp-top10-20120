@@ -18,7 +18,9 @@ if (isset($_GET['nickname'])) {
 <form action="<?= str_replace(' ', '%20', $_SERVER['SCRIPT_NAME']); ?>" method="get">
     <input type="text" name="nickname"/>
     <input type="submit"/>
-    <p>Böser Suchstring:</p>
+    <p>Good Searchstring:</p>
+    <pre>Shirt</pre>
+    <p>Bad Searchstring:</p>
     <pre>asdfagsdfasdfasdfasdf' UNION SELECT email as name, password as price,  email as price2,  email as price3 FROM users WHERE user LIKE '</pre>
 </form>
 <?php if (isset($res)): ?>
