@@ -17,7 +17,7 @@ $stmt = $db->query('SELECT * FROM guestbook');
 <html lang=en>
 <head>
     <meta charset=utf-8>
-    <title>blah</title>
+    <title>A2 Cross Site Scripting (XSS)</title>
 </head>
 <body>
 <form action="<?= str_replace(' ', '%20', $_SERVER['SCRIPT_NAME']); ?>" method="post">
@@ -29,7 +29,10 @@ $stmt = $db->query('SELECT * FROM guestbook');
     <?php foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row): ?>
         <div>
             <h3><?php echo $row['author'] ?> (<?php echo date('d.m.Y H:i:s', strtotime($row['created_at'])); ?>)</h3>
+            <h4>Unescaped</h4>
             <p><?php echo $row['text']; ?></p>
+            <h4>Escaped</h4>
+            <p><?php echo filter_var($row['text'], FILTER_SANITIZE_SPECIAL_CHARS); ?></p>
         </div>
     <?php endforeach; ?>
 </div>

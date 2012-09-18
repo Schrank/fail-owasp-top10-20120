@@ -12,7 +12,7 @@ if (isset($_GET['nickname'])) {
 <html lang=en>
 <head>
     <meta charset=utf-8>
-    <title>blah</title>
+    <title>A1 Injection</title>
 </head>
 <body>
 <form action="<?= str_replace(' ', '%20', $_SERVER['SCRIPT_NAME']); ?>" method="get">
